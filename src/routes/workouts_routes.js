@@ -16,6 +16,7 @@ workoutsRouter.get('/workouts', function(req, res) {
     if (err) return console.log(err);
 
     res.json(data);
+    res.send('all the workouts!');
   });
 })
 
@@ -28,7 +29,6 @@ workoutsRouter.post('/workouts', bodyParser.json(), function(req, res) {
     // like res.send, but this way it's very clear that json is being sent
   });
 });
-
 
 workoutsRouter.put('/workouts/:id', bodyParser.json(), function(req, res) {
   var workoutData = req.body;
