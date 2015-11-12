@@ -4,6 +4,7 @@ var Workout = require(__dirname + '/../models/workout');
 var handleError = require(__dirname + '/../lib/handleServerError');
 
 var workoutsRouter = module.exports = exports = express.Router();
+var workoutsList;
 
 workoutsRouter.get('/workouts', function(req, res) {
   // don't forget to put /api into the address bar
@@ -14,9 +15,9 @@ workoutsRouter.get('/workouts', function(req, res) {
 
     // Workout has the find() method b/c it was made with mongoose
     if (err) return console.log(err);
-
+    workoutsList = data;
+    console.log(workoutsList);
     res.json(data);
-    res.send('all the workouts!');
   });
 })
 
