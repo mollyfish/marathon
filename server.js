@@ -9,6 +9,7 @@ mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/marathon_dev')
 // marathon_dev is the database name for the project
 // MONGOLAB_URI is the database connection string once we deploy to Heroku
 app.use(express.static(__dirname + '/public'));
+
 app.use('/', displayRouter);
 app.use('/api', workoutsRouter);
 
